@@ -1,0 +1,173 @@
+\documentclass{article}
+\input{config}
+\usepackage{bm}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Gal}{Gal}
+
+\newcommand{\ra}{\rightarrow}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\mt}{\mapsto}
+\newcommand{\xra}{\xrightarrow}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\ve}{\varepsilon}
+
+\title{ {\Huge  \textbf{Chapter 4}} \\Continuity}
+\date{}
+\begin{document}
+\maketitle
+
+\section{函数的极限}
+\begin{definition}
+    设\(X,Y\)是度量空间，\(E\subset X\)，\(f:E\to Y\)，\(p\)是\(E\)的极限点。若对于任意的\(\varepsilon>0\)，存在\(\delta>0\)，使得对于任意的\(x\in E\)，且\[0<d_X(x,p)<\delta\]都有\[
+    d_Y(f(x),q)<\ve
+    \]则称\[
+    \lim_{x\ra p}f(x) =q
+    \]
+\end{definition}
+
+\begin{theorem}
+    记号继承定义1.1。设\(E\)中的序列\(\{p_n\}\)满足\[
+    p_n\neq p\quad \lim_{n\ra \infty }p_n =p
+    \] 则\[
+    \lim_{x\ra p}f(x) =q
+    \]当且仅当对于任意\(\{p_n\}\)都有\[
+    \lim_{n\ra \infty}f(p_n) =q.
+    \]
+\end{theorem}
+
+\begin{proof}
+    充分性是显见的；必要性，用反证法容易得到矛盾。
+\end{proof}
+\begin{definition}
+    对函数定义\(f+g,f\cdot g\)，它的具体内容由像空间的运算确定。
+\end{definition}
+\begin{corollary}
+    如果\(f\)在\(p\)有极限，则这个极限是唯一的。
+\end{corollary}
+
+
+\begin{theorem}
+    \(X\)是度量空间，设\(E\subset X\)，\(p\)是\(E\)的极限点，\(f,g\)是\(E\)上的复函数，且\[
+    \lim_{x\ra p} f(x) =A,\quad \lim_{x\ra p}g(x) =B
+    \]则极限运算在这里构成域同态。
+\end{theorem}
+
+\section{连续函数}
+\begin{definition}
+    设\(X,Y\)是度量空间，\(E\subset X\)，\(p\in E\)，\(f:E\to Y\)。若对于任意的\(\ve>0\)，存在\(\delta>0\)，使得对于任意的\(x\in E\)，\(0<d_X(x,p)<\delta\)，都有\[
+    d_Y(f(x),f(p))<\ve
+    \]则称\(f\)在\(p\)点连续。
+\end{definition}
+
+\begin{theorem}
+    记号同定义2.1，并假设\(p\)也是\(E\)的极限点（即\(p\)不是\(E\)的孤立点），则\(f\)在\(p\)点是连续的当且仅当\(\ds \lim_{x\ra p} =f(p)\)。
+\end{theorem}
+
+\begin{theorem}
+    设\(X,Y,Z\)是度量空间，\(E\subset X\)，\(f:E\ra Y,g:f(E)\ra Y\)，定义\(h:E\ra Z\)为\[
+    h(x)=f(g(x))\quad(x\in E)
+    \] 
+    若\(f\)在\(p\)处连续，\(g\)在\(f(p)\)处连续，则\(h\)在\(p\)处连续。
+\end{theorem}
+
+\begin{theorem}
+    设\(X,Y\)是度量空间。映射\(f:X\ra Y\)在\(X\)上是连续的，当且仅当对于任意的开集\(V\subset Y\)，\(f^{-1}(V)\)在\(X\)中都是开的。
+\end{theorem}
+
+\begin{corollary}
+    延续记号。映射\(f:X\ra Y\)在\(X\)上是连续的，当且仅当对于任意的闭集\(C\subset Y\)，\(f^{-1}(C)\)是闭的。
+\end{corollary}
+
+
+\begin{theorem}
+    设\(f,g\)是度量空间\(X\)上的连续复函数，则\(f+g,f\cdot g,f/g\)在\(X\)上是连续的。
+\end{theorem}
+
+
+\begin{theorem}
+    (a) 设\(f_1,...,f_k\)是度量空间\(X\)上的实值函数，\(\bm f:X\ra \RR^k\)定义为\[
+    f(x) =(f_1(x),...,f_k(x))\quad(x\in X)
+    \] 则\(\bm f\)连续当且仅当\(f_1,...,f_k\)连续。
+
+    (b) 若\(\bm{f,g}:X\ra \RR^k\)是连续的，则\(\bm{f+g,f\cdot g}\)也是连续的。
+\end{theorem}
+
+\begin{example}
+        若\(x_1,...,x_k\)是\(\bm x \in \RR^k\)的坐标，定义函数\(\phi_i\)为\[
+    \phi_i(\bm x) =x_i 
+    \]这是一个连续函数。
+\end{example}
+\section{连续和紧性}
+\begin{definition}
+    映射\(\bm f:E \ra \RR^k\)是有界的，如果存在实数\(M\)使得对于任意的\(x\in E\)，\(|f(x)|\leq M\)。
+\end{definition}
+
+\begin{theorem}
+    设\(f\)是紧度量空间\(X\)到度量空间\(Y\)的连续映射，则\(f(X)\)是连续的。
+\end{theorem}
+
+\begin{theorem}
+    设\(\bm f\)是紧度量空间\(X\)到\(\RR^k\)的连续映射，则\(\bm f(X)\)是闭的且是有界的。因此，\(\bm f\)是有界的。
+\end{theorem}
+
+\begin{theorem}
+    设\(f\)是紧度量空间\(X\)上的连续实值函数，且\[
+    M =\sup_{x\in X}f(x)\quad m=\inf_{x\in X}f(x)
+    \]则存在点\(p,q\in X\)，使得\(f(p)=M,f(q)=N\)。
+\end{theorem}
+
+\begin{theorem}
+    设\(f\)是紧度量空间\(X\)到度量空间\(Y\)一一对应的连续映射，则逆映射\(f^{-1}:Y\ra X\)也是连续映射。
+\end{theorem}
+
+\begin{definition}
+    设\(X,Y\)是度规空间，\(f:X\ra Y\)，若对于任意的\(\ve>0\)，存在\(\delta>0\)使得对于任意的\(p,q\in X\)，若\(d_X(p,q)<\delta\)，则有\[
+    d_Y(f(p),f(q)) <\ve
+    \]
+\end{definition}
+
+\begin{theorem}
+    设\(f\)是紧度量空间\(X\)到度规空间\(Y\)的连续映射，则\(f\)在\(X\)上一致连续。
+\end{theorem}
+
+\begin{theorem}
+    设\(E\)在\(\RR\)上不是紧集，则\\
+    (a) \(E\)上存在无界的连续函数。\\
+    (b) \(E\)上存在连续有界，但没有最大值的函数。\\
+    进一步地，若\(E\)有界，则\\
+    (c) \(E\)上存在不一致连续的连续函数。
+\end{theorem}
+
+\section{连续和连通性}
+\begin{theorem}
+    设\(X,Y\)是度规空间，\(f:X\ra Y\)是连续映射。若\(E\)是\(X\)的连通子集，则\(f(E)\)也是连通的。
+\end{theorem}
+
+\begin{theorem}
+    设\(f\)是区间\([a,b]\)上的实值连续函数。若\(f(a)<f(b)\)，实数\(c\)满足\(f(a)<c<f(b)\)，则存在点\(x\in (a,b)\)使得\(f(x) =c\)。
+\end{theorem}
+
+
+\section{不连续性}
+\begin{definition}
+    设\(f\)定义在\((a,b)\)上。考虑点\(x\in[a.b)\)，则记\[
+    f(x+)=q
+    \]若对于任意的\((x,b)\)中收敛于\(x\)的数列\(\{t_n\}\)，当\(n\ra\infty\)时，都有\(f(t_n)\ra q\)。类似地，将\(\{t_n\}\)限制在\((a,x)\)，可以定义\(f(x-)\)。
+\end{definition}
+
+容易知道\(\ds\lim_{t\ra x}f(t)\)当且仅当\(f(x+)=f(x-)=\ds\lim_{t\ra x}f(t)\)。
+\begin{definition}
+    设\(f\)定义在\((a,b)\)。若\(f\)在点\(x\)处不连续，且\(f(x+),f(x-)\)存在，则称\(f\)在点\(x\)处有第一类不连续。
+\end{definition}
+\section{单调函数}
+
+
+\end{document}

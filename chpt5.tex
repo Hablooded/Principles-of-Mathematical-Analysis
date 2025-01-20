@@ -1,0 +1,111 @@
+\documentclass{article}
+\input{config}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Gal}{Gal}
+
+\newcommand{\ra}{\rightarrow}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\mt}{\mapsto}
+\newcommand{\xra}{\xrightarrow}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\FF}{\mathbb{F}}
+
+
+\title{\Huge \textbf{Chapter 5}\\
+Defferentiation}
+\begin{document}
+\maketitle
+\section{实值函数的微分}
+\begin{definition}
+    设\(f\)是定义在\([a,b]\)上的实值函数。对于任意的\(x\in[a,b]\)，定义\[
+f'(x) =\lim_{t\ra x} \frac{f(t)-f(x)}{t-x} \quad(a<t<b,t\neq x)
+\] \(f'\)称为\(f\)的导数。
+\end{definition}
+
+\begin{theorem}
+    设\(f\)是定义在\([a,b]\)的函数。若\(f\)在\(x\in[a,b]\)处可导，则\(f\)在\(x\)处连续。
+\end{theorem}
+这个定理的逆命题是不成立的。事实上，存在处处不可导的连续函数，
+
+\begin{theorem}
+    这是关于导数的运算，不多赘述。
+\end{theorem}
+\begin{theorem}
+    设\(f\)在\([a,b]\)上连续，在某些点\(x\in[a,b]\)上存在\(f'(x)\)，\(g\)定义在包含\(f\)的值域的区间\(I\)上，且\(g\)在点\(f(x)\)上可导。若\[
+    h(t)=g(f(t))\quad(a\leq t\leq b)
+    \]则\(h\)在\(x\)处可导，且\[
+    h'(x)=g'(f(x))f'(x)
+    \]
+\end{theorem}
+
+\section{中值定理}
+
+\begin{definition}
+    设\(f\)是定义在度规空间\(X\)上的实值函数。我们说\(f\)在\(p\in X\)有局部最大值，如果存在\(\delta>0\)，使得对于任意的\(q\in X\)，\(d(p,q)<\delta\)，都有\(f(q)\leq f(p)\)。局部最大值的定义是类似的。
+\end{definition}
+
+\begin{theorem}
+    设\(f\)定义在\([a,b]\)上，若\(f\)在\(x\in[a,b]\)上有局部最大值/最小值，且若\(f'(x)\)存在，则\(f'(x)=0\)。
+\end{theorem}
+
+\begin{theorem}
+    若\(f,g\)是\([a,b]\)上的连续实值函数，在\((a,b)\)上可微，则存在点\(x\in(a,b)\)使得\[
+    [f(b)-f(a)]g'(x) =[g(b)-g(a)]f'(x)
+    \]注意到端点处不要求可导。
+\end{theorem}
+我们有上述一般化的中值定理的常用形式。
+\begin{theorem}
+    若\(f\)是\([a,b]\)上的实值连续函数，在\((a,b)\)上可微，则存在\(x\in(a,b)\)，使得\[
+    f(b)-f(a)=(b-a)f'(x)
+    \]
+\end{theorem}
+
+\begin{theorem}
+    设\(f\)在\((a,b)\)上可微。\begin{enumerate}[label=(\alph*)]
+        \item 若对于任意的\(x\in(a,b)\)，\(f'(x)\geq0\)，则\(f\)单调递增。
+        \item 若对于任意的\(x\in(a,b)\)，\(f'(x)=0\)，则\(f\)是常函数。
+        \item 若对于任意的\(x\in(a,b)\)，\(f'(x)\leq0\)，则\(f\)单调递减。
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    利用中值定理是容易证明的。
+\end{proof}
+
+
+\section{导函数的连续性}
+
+\begin{theorem}
+    设\(f\)是在\([a,b]\)上可导的实值函数，假设\(f'(a)<\lambda <f'(b)\)，则存在点\(x\in[a,b]\)，使得\(f'(x)=\lambda\)。\par
+    若\(f'(a)>f'(b)\)，也有类似的结果成立。
+\end{theorem}
+
+\begin{corollary}
+    若\(f\)在\([a,b]\)是可导，则\(f'\)在\([a,b]\)上不能有第一类不连续点。
+\end{corollary}
+
+\section{L'HOSPITAL 法则}
+
+\begin{theorem}
+    设\(f,g\)是\((a,b)\)上的可导实值函数。对于任意的\(x\in(a,b)\)，\(g'(x)\neq 0\)。设\[
+    \frac{f'(x)}{g'(x)}\ra A\quad(x\ra a)
+    \]
+    若\[
+    f(x)\ra 0,g(x)\ra 0\quad(x\ra a)
+    \]或者
+    \[g(x) \ra +\infty \quad(x\ra a) \]
+    则有\[
+    \frac{f(x)}{g(x)}\ra A\quad(x\ra a)
+    \]
+\end{theorem}
+
+\section{高阶导数}
+\section{向量值函数的导数}
+
+\end{document}

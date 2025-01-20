@@ -1,0 +1,81 @@
+\documentclass{article}
+\input{config}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Gal}{Gal}
+
+\newcommand{\ra}{\rightarrow}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\mt}{\mapsto}
+\newcommand{\xra}{\xrightarrow}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\FF}{\mathbb{F}}
+
+
+\title{
+\Huge \textbf{Chapter 3}
+\\
+Sequences and Serie}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{部分和}
+\begin{theorem}
+    考虑数列\(\{a_n\},\{b_n\}\)，设\[
+    A_n = \sum_{i=1} ^n  a_i \quad(n>0)
+    \]约定\(A_{-1} =0\)，若\(0\leq p\leq  q\)，则我们有\[
+    \sum_{n=p}^q a_nb_n =\sum_{n=p}^{q-1}A_n (b_n-b_{n-1})+A_qb_q-A_{p-1}b_p
+    \]
+\end{theorem}
+
+\begin{theorem}
+    假设\begin{enumerate}[label=(\arabic*)]
+        \item \(\sum a_n\)的部分和\(A_n\)构成一个有界数列；
+        \item \(b_0\geq b_1\geq b_2\geq \cdots \)；
+        \item \(\ds \lim _{n\ra \infty} b_n =0\).
+    \end{enumerate}
+    则\(\sum a_nb_n\)收敛。
+\end{theorem}
+
+\begin{theorem}
+    假设\begin{enumerate}[label=(\arabic*)]
+        \item \(|c_1|\geq |c_2|\geq |c_3|\geq \cdots\)；
+        \item \(c_{2m-1}\geq 0,c_{2m}\leq 0\quad(m=1,2,3,....)\)；
+        \item \(\ds \lim_{n\ra \infty }c_n = 0\).
+    \end{enumerate}
+    则\(c_n \)收敛。
+\end{theorem}
+
+特别地，满足条件{\it (2)}的数列称为交错列。
+
+\begin{theorem}
+    假设幂级数\(\sum c_n z^n\)的收敛半径是\(1\)，且\(c_0\geq c_1\geq c_2\geq\cdots\)，\(\ds\lim_{n\ra \infty}c_n=0\)，则\(\sum c_nz^n\)在\(|z|=1\)上除了\(z=1\)外任意一点收敛。\(z=1\)时的收敛性不确定。
+\end{theorem}
+
+\section{绝对收敛}
+\begin{definition}
+    数列\(\{a_n\}\)满足\( \sum |a_n|\)收敛，则称\(\{a_n\}\)绝对收敛。
+\end{definition}
+\section{数列的加法和乘法}
+数列的加法是平凡的。数列的乘法是根据幂级数的乘法定义的。
+
+\section{重排}
+\begin{theorem}
+    对于收敛的级数，它的任意重排是有界的。
+\end{theorem}
+
+\begin{theorem}
+    对于绝对收敛的级数，它的任意重排均收敛且收敛于原数列的收敛值。
+\end{theorem}
+
+\end{document}
